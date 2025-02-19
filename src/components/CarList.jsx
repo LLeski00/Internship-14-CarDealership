@@ -1,12 +1,9 @@
-import { cars } from "../data";
 import CarContainer from "./CarContainer";
 
-const CarList = () => {
+const CarList = ({ cars }) => {
     return (
         <div className="car-list">
-            {cars.map((car) => (
-                <CarContainer car={car} key={car.id} />
-            ))}
+            {cars && cars.map((car) => <CarContainer car={car} key={car.id} />)}
         </div>
     );
 };
