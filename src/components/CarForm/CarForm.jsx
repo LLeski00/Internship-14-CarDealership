@@ -31,14 +31,7 @@ const CarForm = ({ cars, setCars }) => {
             return;
         }
 
-        const newCar = {
-            id: newId(),
-            brand: carData.brand,
-            model: carData.model,
-            type: carData.type,
-            year: carData.year,
-            expiryDate: carData.expiryDate,
-        };
+        const newCar = { ...carData, id: newId() };
         addCar(newCar);
     }
 

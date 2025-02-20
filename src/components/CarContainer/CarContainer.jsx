@@ -1,12 +1,19 @@
 import "./CarContainer.css";
 
-const CarContainer = ({ car }) => {
+const CarContainer = ({ car, cars, setCars }) => {
     const borderColor = isRegistrationExpiring() ? "red" : "black";
+
     function isRegistrationExpiring() {
         const expiryDate = new Date(car.expiryDate);
         const nextMonth = new Date();
         nextMonth.setDate(nextMonth.getDate() + 30);
         return expiryDate < nextMonth;
+    }
+
+    function deleteCar() {
+        const updatedCars = cars.filter((_car) => _car.id != car.id);
+        localStorage.setItem("carList", JSON.stringify(updatedCars));
+        setCars(updatedCars);
     }
 
     return (
@@ -17,6 +24,7 @@ const CarContainer = ({ car }) => {
             <p>Type: {car.type}</p>
             <p>Year: {car.year}</p>
             <p>Expiry date: {car.expiryDate}</p>
+            <button onClick={deleteCar}>Delete</button>
         </div>
     );
 };

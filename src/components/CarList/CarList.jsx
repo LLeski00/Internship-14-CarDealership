@@ -1,23 +1,25 @@
 import "./CarList.css";
 import CarContainer from "../CarContainer/CarContainer";
 
-const CarList = ({ cars }) => {
+const CarList = ({ cars, setCars }) => {
     const sortedCars = [...cars].sort((a, b) => {
-        const dateA = new Date(a.expiryDate).getTime();
-        const dateB = new Date(b.expiryDate).getTime();
-
-        if (dateA === dateB) {
+        if (a.year === b.year) {
             if (a.brand === b.brand) return a.model.localeCompare(b.model);
             return a.brand.localeCompare(b.brand);
         }
 
-        return dateB - dateA;
+        return b.year - a.year;
     });
 
     return (
         <div className="car-list">
             {sortedCars.map((car) => (
-                <CarContainer car={car} key={car.id} />
+                <CarContainer
+                    car={car}
+                    cars={cars}
+                    setCars={setCars}
+                    key={car.id}
+                />
             ))}
         </div>
     );

@@ -13,10 +13,10 @@ function App() {
             <h1>Car dealership</h1>
             <div className="app-content">
                 <main>
-                    <CarList cars={cars} />
+                    <CarList cars={cars} setCars={setCars} />
                     <CarForm cars={cars} setCars={setCars} />
                 </main>
-                <CarFilter cars={cars} setCars={setCars} />
+                <CarFilter setCars={setCars} />
             </div>
         </>
     );
