@@ -11,6 +11,7 @@ const CarForm = ({ cars, setCars }) => {
         year: 0,
         expiryDate: "",
     });
+    const [isOpen, setIsOpen] = useState(false);
 
     function updateCarData(atrribute, value) {
         setCarData((prev) => ({ ...prev, [atrribute]: value }));
@@ -35,72 +36,88 @@ const CarForm = ({ cars, setCars }) => {
     }
 
     return (
-        <form className="car-form" onSubmit={handleFormSubmit}>
-            <label>
-                Enter car brand:
-                <input
-                    type="text"
-                    name="car-brand"
-                    placeholder="Enter car brand..."
-                    value={carData.brand}
-                    onChange={(e) => updateCarData("brand", e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Enter car model:
-                <input
-                    type="text"
-                    name="car-model"
-                    placeholder="Enter car model..."
-                    value={carData.model}
-                    onChange={(e) => updateCarData("model", e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Enter car type:
-                <select
-                    name="car-type"
-                    value={carData.type}
-                    onChange={(e) => updateCarData("type", e.target.value)}
-                    required
-                >
-                    <option value="">Select a car type</option>
-                    {carTypes.map((carType) => (
-                        <option value={carType} key={carType}>
-                            {carType}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <label>
-                Enter car's year of manufacturing:
-                <input
-                    type="number"
-                    name="car-year"
-                    min="1900"
-                    placeholder="2000"
-                    max={new Date().getFullYear()}
-                    value={carData.year}
-                    onChange={(e) => updateCarData("year", e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Enter car's registration expiry date:
-                <input
-                    type="date"
-                    name="car-expiry-date"
-                    value={carData.expiryDate}
-                    onChange={(e) =>
-                        updateCarData("expiryDate", e.target.value)
-                    }
-                    required
-                />
-            </label>
-            <button type="submit">Add car</button>
-        </form>
+        <>
+            {isOpen && (
+                <form className="car-form" onSubmit={handleFormSubmit}>
+                    <h3>Add new car</h3>
+                    <label>
+                        Enter car brand:
+                        <input
+                            type="text"
+                            name="car-brand"
+                            placeholder="Enter car brand..."
+                            value={carData.brand}
+                            onChange={(e) =>
+                                updateCarData("brand", e.target.value)
+                            }
+                            required
+                        />
+                    </label>
+                    <label>
+                        Enter car model:
+                        <input
+                            type="text"
+                            name="car-model"
+                            placeholder="Enter car model..."
+                            value={carData.model}
+                            onChange={(e) =>
+                                updateCarData("model", e.target.value)
+                            }
+                            required
+                        />
+                    </label>
+                    <label>
+                        Enter car type:
+                        <select
+                            name="car-type"
+                            value={carData.type}
+                            onChange={(e) =>
+                                updateCarData("type", e.target.value)
+                            }
+                            required
+                        >
+                            <option value="">Select a car type</option>
+                            {carTypes.map((carType) => (
+                                <option value={carType} key={carType}>
+                                    {carType}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+                    <label>
+                        Enter car's year of manufacturing:
+                        <input
+                            type="number"
+                            name="car-year"
+                            min="1900"
+                            placeholder="2000"
+                            max={new Date().getFullYear()}
+                            value={carData.year}
+                            onChange={(e) =>
+                                updateCarData("year", e.target.value)
+                            }
+                            required
+                        />
+                    </label>
+                    <label>
+                        Enter car's registration expiry date:
+                        <input
+                            type="date"
+                            name="car-expiry-date"
+                            value={carData.expiryDate}
+                            onChange={(e) =>
+                                updateCarData("expiryDate", e.target.value)
+                            }
+                            required
+                        />
+                    </label>
+                    <button type="submit">Add car</button>
+                </form>
+            )}
+            <button onClick={() => setIsOpen((prev) => !prev)}>
+                {isOpen ? "Hide" : "Add new car"}
+            </button>
+        </>
     );
 };
 

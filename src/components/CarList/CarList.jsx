@@ -1,6 +1,5 @@
 import "./CarList.css";
 import CarContainer from "../CarContainer/CarContainer";
-import { useEffect } from "react";
 
 const CarList = ({ cars, setCars, filterData }) => {
     const sortedCars = filterCars().sort((a, b) => {

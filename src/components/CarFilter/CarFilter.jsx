@@ -1,6 +1,4 @@
-import { useState } from "react";
 import "./CarFilter.css";
-import { useEffect } from "react";
 
 const CarFilter = ({ filterData, setFilterData }) => {
     function updateFilterData(atrribute, value) {
@@ -8,7 +6,8 @@ const CarFilter = ({ filterData, setFilterData }) => {
     }
 
     return (
-        <aside className="car-filter">
+        <form className="car-filter">
+            <h3>Filter</h3>
             <label>
                 Filter by brand:
                 <input
@@ -25,7 +24,7 @@ const CarFilter = ({ filterData, setFilterData }) => {
                     onChange={(e) => updateFilterData("model", e.target.value)}
                 />
             </label>
-        </aside>
+        </form>
     );
 };
 
