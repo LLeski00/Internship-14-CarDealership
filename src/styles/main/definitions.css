@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(182, 182, 182);
+}
+
+h1,
+h2 {
+    text-align: center;
+}

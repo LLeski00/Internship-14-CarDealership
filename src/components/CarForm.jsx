@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { carTypes } from "../data";
+import { carTypes } from "../data/data";
 import { v4 as newId } from "uuid";
 
-const CarForm = ({ addCar }) => {
+const CarForm = ({ cars, setCars }) => {
     const [brand, setBrand] = useState("");
     const [model, setModel] = useState("");
     const [type, setType] = useState("");
@@ -28,8 +28,15 @@ const CarForm = ({ addCar }) => {
         addCar(newCar);
     }
 
+    const addCar = (newCar) => {
+        newCar.id = newId();
+        const updatedCars = [...cars, newCar];
+        localStorage.setItem("carList", JSON.stringify(updatedCars));
+        setCars(updatedCars);
+    };
+
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form className="car-form" onSubmit={handleFormSubmit}>
             <label>
                 Enter car brand:
                 <input

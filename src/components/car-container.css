@@ -1,0 +1,10 @@
+.car-container {
+    width: 300px;
+    background-color: green;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.car-container > * {
+    color: white;
+}
