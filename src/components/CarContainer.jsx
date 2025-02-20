@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
-
 const CarContainer = ({ car }) => {
-    const [borderColor, setBorderColor] = useState(
-        isRegistrationExpiring() ? "red" : "black"
-    );
-
+    const borderColor = isRegistrationExpiring() ? "red" : "black";
     function isRegistrationExpiring() {
         const expiryDate = new Date(car.expiryDate);
-        const lastMonth = new Date();
-        lastMonth.setMonth(lastMonth.getMonth() - 1);
-        if (expiryDate < new Date()) return true;
-
-        return false;
+        const nextMonth = new Date();
+        nextMonth.setDate(nextMonth.getDate() + 30);
+        return expiryDate < nextMonth;
     }
 
     return (

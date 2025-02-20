@@ -12,6 +12,11 @@ const CarForm = ({ cars, setCars }) => {
     function handleFormSubmit(e) {
         e.preventDefault();
 
+        if (cars.length >= 10) {
+            alert("You have reached the max number of cars!");
+            return;
+        }
+
         if (!brand || !model || !type || !year || !expiryDate) {
             alert("All input fields are required!");
             return;
