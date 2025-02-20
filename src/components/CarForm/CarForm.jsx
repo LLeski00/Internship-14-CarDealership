@@ -31,6 +31,7 @@ const CarForm = ({ cars, setCars }) => {
 
         const newCar = { ...carData, id: newId() };
         addCar(newCar);
+        alert("Car successfully added.");
     }
 
     return (

@@ -1,6 +1,6 @@
 import "./CarContainer.css";
 
-const CarContainer = ({ car, cars, setCars }) => {
+const CarContainer = ({ car, setCars }) => {
     const borderColor = isRegistrationExpiring() ? "red" : "black";
 
     function isRegistrationExpiring() {
@@ -12,6 +12,7 @@ const CarContainer = ({ car, cars, setCars }) => {
 
     function deleteCar() {
         setCars((prev) => prev.filter((_car) => _car.id != car.id));
+        alert("The car was successfully deleted.");
     }
 
     return (
