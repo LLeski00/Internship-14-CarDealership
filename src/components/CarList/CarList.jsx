@@ -1,4 +1,5 @@
-import CarContainer from "./CarContainer";
+import "./CarList.css";
+import CarContainer from "../CarContainer/CarContainer";
 
 const CarList = ({ cars }) => {
     const sortedCars = [...cars].sort((a, b) => {

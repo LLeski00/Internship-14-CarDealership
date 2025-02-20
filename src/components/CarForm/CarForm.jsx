@@ -1,5 +1,6 @@
+import "./CarForm.css";
 import { useState } from "react";
-import { carTypes } from "../data/data";
+import { carTypes } from "../../data/data";
 import { v4 as newId } from "uuid";
 
 const CarForm = ({ cars, setCars }) => {

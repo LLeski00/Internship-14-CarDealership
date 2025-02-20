@@ -1,4 +1,5 @@
-import { carTypes } from "../data/data";
+import "./CarFilter.css";
+import { carTypes } from "../../data/data";
 
 const CarFilter = ({ setCars }) => {
     return <aside className="car-filter"></aside>;

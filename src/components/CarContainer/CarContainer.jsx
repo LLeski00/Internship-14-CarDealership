@@ -1,3 +1,5 @@
+import "./CarContainer.css";
+
 const CarContainer = ({ car }) => {
     const borderColor = isRegistrationExpiring() ? "red" : "black";
     function isRegistrationExpiring() {

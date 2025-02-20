@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CarForm from "./components/CarForm";
-import CarList from "./components/CarList";
-import CarFilter from "./components/CarFilter";
+import CarForm from "./components/CarForm/CarForm";
+import CarList from "./components/CarList/CarList";
+import CarFilter from "./components/CarFilter/CarFilter";
 
 function App() {
     const [cars, setCars] = useState(
@@ -11,9 +11,13 @@ function App() {
     return (
         <>
             <h1>Car dealership</h1>
-            <CarList cars={cars} />
-            <CarForm cars={cars} setCars={setCars} />
-            <CarFilter cars={cars} setCars={setCars} />
+            <div className="app-content">
+                <main>
+                    <CarList cars={cars} />
+                    <CarForm cars={cars} setCars={setCars} />
+                </main>
+                <CarFilter cars={cars} setCars={setCars} />
+            </div>
         </>
     );
 }
