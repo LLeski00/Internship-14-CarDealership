@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CarForm from "./components/CarForm/CarForm";
 import CarList from "./components/CarList/CarList";
 import CarFilter from "./components/CarFilter/CarFilter";
@@ -7,6 +7,10 @@ function App() {
     const [cars, setCars] = useState(
         JSON.parse(localStorage.getItem("carList")) || []
     );
+
+    useEffect(() => {
+        localStorage.setItem("carList", JSON.stringify(cars));
+    }, [cars]);
 
     return (
         <>

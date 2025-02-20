@@ -18,9 +18,7 @@ const CarForm = ({ cars, setCars }) => {
 
     const addCar = (newCar) => {
         newCar.id = newId();
-        const updatedCars = [...cars, newCar];
-        localStorage.setItem("carList", JSON.stringify(updatedCars));
-        setCars(updatedCars);
+        setCars([...cars, newCar]);
     };
 
     function handleFormSubmit(e) {

@@ -11,9 +11,7 @@ const CarContainer = ({ car, cars, setCars }) => {
     }
 
     function deleteCar() {
-        const updatedCars = cars.filter((_car) => _car.id != car.id);
-        localStorage.setItem("carList", JSON.stringify(updatedCars));
-        setCars(updatedCars);
+        setCars((prev) => prev.filter((_car) => _car.id != car.id));
     }
 
     return (
