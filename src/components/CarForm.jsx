@@ -3,34 +3,16 @@ import { carTypes } from "../data/data";
 import { v4 as newId } from "uuid";
 
 const CarForm = ({ cars, setCars }) => {
-    const [brand, setBrand] = useState("");
-    const [model, setModel] = useState("");
-    const [type, setType] = useState("");
-    const [year, setYear] = useState("");
-    const [expiryDate, setExpiryDate] = useState("");
+    const [carData, setCarData] = useState({
+        brand: "",
+        model: "",
+        type: "",
+        year: 0,
+        expiryDate: "",
+    });
 
-    function handleFormSubmit(e) {
-        e.preventDefault();
-
-        if (cars.length >= 10) {
-            alert("You have reached the max number of cars!");
-            return;
-        }
-
-        if (!brand || !model || !type || !year || !expiryDate) {
-            alert("All input fields are required!");
-            return;
-        }
-
-        const newCar = {
-            id: newId(),
-            brand,
-            model,
-            type,
-            year,
-            expiryDate,
-        };
-        addCar(newCar);
+    function updateCarData(atrribute, value) {
+        setCarData((prev) => ({ ...prev, [atrribute]: value }));
     }
 
     const addCar = (newCar) => {
@@ -40,6 +22,25 @@ const CarForm = ({ cars, setCars }) => {
         setCars(updatedCars);
     };
 
+    function handleFormSubmit(e) {
+        e.preventDefault();
+
+        if (cars.length >= 10) {
+            alert("You have reached the max number of cars!");
+            return;
+        }
+
+        const newCar = {
+            id: newId(),
+            brand: carData.brand,
+            model: carData.model,
+            type: carData.type,
+            year: carData.year,
+            expiryDate: carData.expiryDate,
+        };
+        addCar(newCar);
+    }
+
     return (
         <form className="car-form" onSubmit={handleFormSubmit}>
             <label>
@@ -48,8 +49,9 @@ const CarForm = ({ cars, setCars }) => {
                     type="text"
                     name="car-brand"
                     placeholder="Enter car brand..."
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)}
+                    value={carData.brand}
+                    onChange={(e) => updateCarData("brand", e.target.value)}
+                    required
                 />
             </label>
             <label>
@@ -58,16 +60,18 @@ const CarForm = ({ cars, setCars }) => {
                     type="text"
                     name="car-model"
                     placeholder="Enter car model..."
-                    value={model}
-                    onChange={(e) => setModel(e.target.value)}
+                    value={carData.model}
+                    onChange={(e) => updateCarData("model", e.target.value)}
+                    required
                 />
             </label>
             <label>
                 Enter car type:
                 <select
                     name="car-type"
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
+                    value={carData.type}
+                    onChange={(e) => updateCarData("type", e.target.value)}
+                    required
                 >
                     <option value="">Select a car type</option>
                     {carTypes.map((carType) => (
@@ -85,8 +89,9 @@ const CarForm = ({ cars, setCars }) => {
                     min="1900"
                     placeholder="2000"
                     max={new Date().getFullYear()}
-                    value={year}
-                    onChange={(e) => setYear(e.target.value)}
+                    value={carData.year}
+                    onChange={(e) => updateCarData("year", e.target.value)}
+                    required
                 />
             </label>
             <label>
@@ -94,8 +99,11 @@ const CarForm = ({ cars, setCars }) => {
                 <input
                     type="date"
                     name="car-expiry-date"
-                    value={expiryDate}
-                    onChange={(e) => setExpiryDate(e.target.value)}
+                    value={carData.expiryDate}
+                    onChange={(e) =>
+                        updateCarData("expiryDate", e.target.value)
+                    }
+                    required
                 />
             </label>
             <button type="submit">Add car</button>
