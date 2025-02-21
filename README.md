@@ -1,8 +1,84 @@
-# React + Vite
+If you want data for testing paste this into the console and refresh:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+localStorage.setItem("carList", JSON.stringify([
+{
+id: 0,
+brand: "Ford",
+model: "Mustang",
+type: "Sports Car",
+year: 1990,
+expiryDate: "1995-11-13",
+},
+{
+id: 1,
+brand: "Toyota",
+model: "Corolla",
+type: "Sedan",
+year: 2005,
+expiryDate: "2015-07-21",
+},
+{
+id: 2,
+brand: "BMW",
+model: "X5",
+type: "SUV",
+year: 2018,
+expiryDate: "2030-03-05",
+},
+{
+id: 3,
+brand: "Honda",
+model: "Civic",
+type: "Sedan",
+year: 2012,
+expiryDate: "2027-09-12",
+},
+{
+id: 4,
+brand: "Chevrolet",
+model: "Camaro",
+type: "Sports Car",
+year: 2016,
+expiryDate: "2028-06-30",
+},
+{
+id: 5,
+brand: "Tesla",
+model: "Model S",
+type: "Electric",
+year: 2020,
+expiryDate: "2035-01-01",
+},
+{
+id: 6,
+brand: "Nissan",
+model: "GT-R",
+type: "Sports Car",
+year: 2013,
+expiryDate: "2026-12-15",
+},
+{
+id: 7,
+brand: "Mercedes-Benz",
+model: "C-Class",
+type: "Luxury Sedan",
+year: 2017,
+expiryDate: "2029-08-20",
+},
+{
+id: 8,
+brand: "Audi",
+model: "Q7",
+type: "SUV",
+year: 2015,
+expiryDate: "2027-04-10",
+},
+{
+id: 9,
+brand: "Subaru",
+model: "WRX",
+type: "Sports Sedan",
+year: 2014,
+expiryDate: "2026-11-25",
+},
+]));
