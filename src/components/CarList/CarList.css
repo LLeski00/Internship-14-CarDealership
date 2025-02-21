@@ -1,7 +1,17 @@
 .car-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 1440px) {
+    .car-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .car-list {
+        grid-template-columns: 1fr;
+    }
 }
