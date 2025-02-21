@@ -1,7 +1,7 @@
 import "./CarList.css";
 import CarContainer from "../CarContainer/CarContainer";
 
-const CarList = ({ cars, setCars, filterData }) => {
+const CarList = ({ cars, setCars, filter }) => {
     const sortedCars = filterCars().sort((a, b) => {
         if (a.year === b.year) {
             if (a.brand === b.brand) return a.model.localeCompare(b.model);
@@ -12,18 +12,13 @@ const CarList = ({ cars, setCars, filterData }) => {
     });
 
     function filterCars() {
-        let filteredCars = [...cars];
+        if (filter)
+            return [...cars].filter((car) => {
+                const carName = (car.brand + " " + car.model).toLowerCase();
+                return carName.includes(filter.toLowerCase());
+            });
 
-        if (filterData.brand)
-            filteredCars = filteredCars.filter((car) =>
-                car.brand.toLowerCase().includes(filterData.brand.toLowerCase())
-            );
-        if (filterData.model)
-            filteredCars = filteredCars.filter((car) =>
-                car.model.toLowerCase().includes(filterData.model.toLowerCase())
-            );
-
-        return filteredCars;
+        return cars;
     }
 
     return (

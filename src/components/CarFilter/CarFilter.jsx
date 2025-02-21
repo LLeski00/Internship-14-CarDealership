@@ -1,12 +1,8 @@
 import { useState } from "react";
 import "./CarFilter.css";
 
-const CarFilter = ({ filterData, setFilterData }) => {
+const CarFilter = ({ filter, setFilter }) => {
     const [isOpen, setIsOpen] = useState(true);
-
-    function updateFilterData(atrribute, value) {
-        setFilterData({ ...filterData, [atrribute]: value });
-    }
 
     return (
         <>
@@ -14,23 +10,11 @@ const CarFilter = ({ filterData, setFilterData }) => {
                 <form className="car-filter">
                     <h3>Filter</h3>
                     <label>
-                        Filter by brand:
                         <input
                             type="text"
-                            value={filterData.brand}
-                            onChange={(e) =>
-                                updateFilterData("brand", e.target.value)
-                            }
-                        />
-                    </label>
-                    <label>
-                        Filter by model:
-                        <input
-                            type="text"
-                            value={filterData.model}
-                            onChange={(e) =>
-                                updateFilterData("model", e.target.value)
-                            }
+                            name="car-filter"
+                            value={filter.brand}
+                            onChange={(e) => setFilter(e.target.value)}
                         />
                     </label>
                 </form>

@@ -7,10 +7,7 @@ function App() {
     const [cars, setCars] = useState(
         JSON.parse(localStorage.getItem("carList")) || []
     );
-    const [filterData, setFilterData] = useState({
-        brand: "",
-        model: "",
-    });
+    const [filter, setFilter] = useState("");
 
     useEffect(() => {
         localStorage.setItem("carList", JSON.stringify(cars));
@@ -20,16 +17,9 @@ function App() {
         <>
             <h1>Car dealership</h1>
             <div className="app-content">
-                <CarFilter
-                    filterData={filterData}
-                    setFilterData={setFilterData}
-                />
+                <CarFilter filter={filter} setFilter={setFilter} />
                 <CarForm cars={cars} setCars={setCars} />
-                <CarList
-                    cars={cars}
-                    setCars={setCars}
-                    filterData={filterData}
-                />
+                <CarList cars={cars} setCars={setCars} filter={filter} />
             </div>
         </>
     );
