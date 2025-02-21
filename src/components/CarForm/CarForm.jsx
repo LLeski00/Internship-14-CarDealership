@@ -118,7 +118,7 @@ const CarForm = ({ cars, setCars }) => {
                 className="toggle-form-button"
                 onClick={() => setIsOpen((prev) => !prev)}
             >
-                {isOpen ? "Hide" : "Add new car"}
+                {isOpen ? "Hide form" : "Add new car"}
             </button>
         </>
     );

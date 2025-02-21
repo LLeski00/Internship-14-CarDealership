@@ -23,7 +23,7 @@ const CarFilter = ({ filter, setFilter }) => {
                 className="toggle-filter-button"
                 onClick={() => setIsOpen((prev) => !prev)}
             >
-                {isOpen ? "Hide" : "Filter"}
+                {isOpen ? "Hide filter" : "Filter"}
             </button>
         </>
     );

@@ -1,7 +1,9 @@
 import "./CarContainer.css";
 
 const CarContainer = ({ car, setCars }) => {
-    const borderColor = isRegistrationExpiring() ? "red" : "black";
+    const borderColor = isRegistrationExpiring()
+        ? "var(--light-red-color)"
+        : "black";
 
     function isRegistrationExpiring() {
         const expiryDate = new Date(car.expiryDate);

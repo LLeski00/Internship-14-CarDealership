@@ -1,3 +1,5 @@
 :root {
-    --gray-shadow-color: rgb(100, 100, 100);
+    --shadow-color: rgb(34, 34, 34);
+    --light-red-color: rgb(228, 48, 48);
+    --background-color: rgb(71, 71, 71);
 }

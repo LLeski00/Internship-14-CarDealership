@@ -15,7 +15,7 @@ function App() {
 
     return (
         <>
-            <h1>Car dealership</h1>
+            <h1>Car Dealership</h1>
             <div className="app-content">
                 <CarFilter filter={filter} setFilter={setFilter} />
                 <CarForm cars={cars} setCars={setCars} />
