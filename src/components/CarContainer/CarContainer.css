@@ -5,6 +5,9 @@
     border-radius: 10px;
     padding: 10px;
     box-shadow: 5px 5px 5px 5px rgb(75, 75, 75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .car-container:hover {
@@ -13,4 +16,12 @@
 
 .car-container > * {
     color: black;
+}
+
+.car-container > h2 {
+    align-self: center;
+}
+
+.car-container > button {
+    align-self: center;
 }
