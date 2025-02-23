@@ -22,11 +22,21 @@ const CarList = ({ cars, setCars, filter }) => {
     }
 
     return (
-        <div className="car-list">
-            {sortedCars.map((car) => (
-                <CarContainer car={car} setCars={setCars} key={car.id} />
-            ))}
-        </div>
+        <>
+            {sortedCars.length > 0 ? (
+                <div className="car-list">
+                    {sortedCars.map((car) => (
+                        <CarContainer
+                            car={car}
+                            setCars={setCars}
+                            key={car.id}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <p className="no-results-message">No results</p>
+            )}
+        </>
     );
 };
 

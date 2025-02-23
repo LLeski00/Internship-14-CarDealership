@@ -4,6 +4,10 @@
     gap: 30px;
 }
 
+.no-results-message {
+    color: white;
+}
+
 @media (max-width: 1440px) {
     .car-list {
         grid-template-columns: 1fr 1fr;
